@@ -2,58 +2,62 @@
 " Author:
 "    Todor Mitev
 "    siper92@gmail.com
-"  
 " Version:
-"    1.0 -> 28.12.2014
-" 
+"    1.0 -> 25.05.2015 
 " Sections:
 "    1. Generali
 "    2. Utils
-"
 """""""""""""""""""""""""""""""""""""""""""
 " Keys:
 " 	<C -> ctrl key
 " 	<M -> alt
 "
+
 """""""""""""""""""""""""""""""""""""""""""
+" GENERAL
+"""""""""""""""""""""""""""""""""""""""""""  
 
-
-" 1) General 
- 
 " Enable line numbers
 set nu
+" ignore case when searching
+set ignorecase
+" When searching try to be smart about cases 
+set smartcase
+" Highlight search results
+set hlsearch
+" Makes search act like search in modern browsers
+set incsearch 
+set mouse=a
+
+
+""""""""""""""""""""""""""""""""""""""""""
+" set leader button
+:let mapleader = ","
+
 " Change mouse mode or something like that!
 " set mouse=a 
 " toggle paste mode, make it easy to past text in vim
 set pastetoggle=<C-p>
  
 " <C-s> not working because it's a terinal command
+" SAVE
 map <C-c> :w!<CR>
-" save file while in insert mode and then go back to inset mode (i)
 imap <C-c> <ESC>:w!<CR>i
 
-" Map Alt+space to insert mode, 
-" use nmap because we need to be in normal mode to do it
-map <M-Space> i  
-imap <M-Space> <ESC>  
+map <C-q> :wq<CR>
+imap <C-q> <ESC>:wq<CR>
+vmap <C-q> <ESC>:wq<CR>
 
-" Exit with no save
+map <C-n> :NERDTreeToggle<CR>
+
+" EXIT with no save
 map <Tab>/ :q!<CR>
 
-" map search to Ctrl-F
+" SEARCH to Ctrl-F
 map <C-f> :/
+imap <C-f> <ESC>:/
+vmap <C-f> <ESC>:/
 
-" ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases 
-set smartcase
-
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch 
 
 """""""""""""""""""""""""""""""""""""""""
 "  => Utils
@@ -61,15 +65,15 @@ set incsearch
 " Map F3 to echo the current date and time
 map <F3> :echo 'Current time is ' . strftime('%c')<CR>
 
-" set leader button
-:let mapleader = ","
 
 " create and close new tabls
 nnoremap <F1> :tabnew<CR>
 nnoremap <F2> :tabclose<CR>
-nnoremap <S-z> gT
-nnoremap <S-x> gt
 
-" call pathogen#infect()
-" call pathogen#helptags()
+
+"""""""""""""""""""""""""""""""""""""""
+" COLOR SHEMA
+"""""""""""""""""""""""""""""""""""""""
+call pathogen#infect()
+syntax enable
 
