@@ -11,6 +11,12 @@
 "    2. Utils
 "
 """""""""""""""""""""""""""""""""""""""""""
+" Keys:
+" 	<C -> ctrl key
+" 	<M -> alt
+"
+"""""""""""""""""""""""""""""""""""""""""""
+
 
 " 1) General 
  
@@ -54,3 +60,16 @@ set incsearch
 """"""""""""""""""""""""""""""""""""""""
 " Map F3 to echo the current date and time
 map <F3> :echo 'Current time is ' . strftime('%c')<CR>
+
+" set leader button
+:let mapleader = ","
+
+" create and close new tabls
+nnoremap <F1> :tabnew<CR>
+nnoremap <F2> :tabclose<CR>
+nnoremap <S-z> gT
+nnoremap <S-x> gt
+
+" call pathogen#infect()
+" call pathogen#helptags()
+
