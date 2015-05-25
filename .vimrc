@@ -28,7 +28,7 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch 
 set mouse=a
-
+set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""""""
 " set leader button
@@ -48,7 +48,6 @@ map <C-q> :wq<CR>
 imap <C-q> <ESC>:wq<CR>
 vmap <C-q> <ESC>:wq<CR>
 
-map <C-n> :NERDTreeToggle<CR>
 
 " EXIT with no save
 map <Tab>/ :q!<CR>
@@ -59,9 +58,11 @@ imap <C-f> <ESC>:/
 vmap <C-f> <ESC>:/
 
 
-"""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""
 "  => Utils
 """"""""""""""""""""""""""""""""""""""""
+call pathogen#infect()
+
 " Map F3 to echo the current date and time
 map <F3> :echo 'Current time is ' . strftime('%c')<CR>
 
@@ -70,10 +71,8 @@ map <F3> :echo 'Current time is ' . strftime('%c')<CR>
 nnoremap <F1> :tabnew<CR>
 nnoremap <F2> :tabclose<CR>
 
-
 """""""""""""""""""""""""""""""""""""""
-" COLOR SHEMA
+" NERD TREE
 """""""""""""""""""""""""""""""""""""""
-call pathogen#infect()
-syntax enable
-
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
