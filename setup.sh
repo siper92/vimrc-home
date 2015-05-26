@@ -21,5 +21,5 @@ fi
 
 if [ ! -d  "$ABS_PATH/.vim/bundle/jedi-vim" ]; then
 	echo "Cloning the jedi-vim plugin"
-	git clone git@github.com:siper92/jedi-vim.git "$ABS_PATH/.vim/bundle/jedi-vim" 
+	git clone --recursive git@github.com:siper92/jedi-vim.git "$ABS_PATH/.vim/bundle/jedi-vim" 
 fi
