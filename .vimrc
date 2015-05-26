@@ -42,7 +42,7 @@ set softtabstop=4
 """""""""""""""""""""""""""""""""""""""""""
 
 " set leader button
-:let mapleader = ","
+:let mapleader = "\\"
 
 " Change mouse mode or something like that!
 " set mouse=a 
@@ -54,9 +54,9 @@ set pastetoggle=<C-p>
 map <C-c> :w!<CR>
 imap <C-c> <ESC>:w!<CR>i
 
-map <C-q> :wq<CR>
-imap <C-q> <ESC>:wq<CR>
-vmap <C-q> <ESC>:wq<CR>
+map <leader>q :wq<CR>
+imap <leader>q <ESC>:wq<CR>
+vmap <leader>q <ESC>:wq<CR>
 
 " EXIT with no save
 map <Tab>/ :q!<CR>
@@ -69,6 +69,11 @@ imap <C-f> <ESC>:/
 imap <C-r> <ESC>:%s/
 vmap <C-f> <ESC>:/
 vmap <C-r> <ESC>:%s/
+
+" Duplicate line
+map <C-d> yy p
+imap <C-d> <ESC>yy p i
+vmap <C-d> <ESC>yy p i
 
 " create and close new tabls
 nnoremap <F1> :tabnew<CR>
