@@ -12,9 +12,8 @@
 " 	<C -> ctrl key
 " 	<M -> alt
 "
-
 """""""""""""""""""""""""""""""""""""""""""
-" GENERAL
+" GENERAL SETTIGNS
 """""""""""""""""""""""""""""""""""""""""""  
 
 " Enable line numbers
@@ -30,7 +29,10 @@ set incsearch
 set mouse=a
 set t_Co=256
 
-""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""
+" GENEREL KEY BINDINGS  
+"""""""""""""""""""""""""""""""""""""""""""
+
 " set leader button
 :let mapleader = ","
 
@@ -48,28 +50,29 @@ map <C-q> :wq<CR>
 imap <C-q> <ESC>:wq<CR>
 vmap <C-q> <ESC>:wq<CR>
 
-
 " EXIT with no save
 map <Tab>/ :q!<CR>
+imap <Tab>/ <ESC>:q!<CR>
 
-" SEARCH to Ctrl-F
+" SEARCH to Ctrl-F and REPLACE to Ctrl-R
 map <C-f> :/
+map <C-r> :%s/ 
 imap <C-f> <ESC>:/
+imap <C-r> <ESC>:%s/
 vmap <C-f> <ESC>:/
+vmap <C-r> <ESC>:%s/
 
+" create and close new tabls
+nnoremap <F1> :tabnew<CR>
+nnoremap <F2> :tabclose<CR>
 
 """"""""""""""""""""""""""""""""""""""""
-"  => Utils
+" Utils
 """"""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
 
 " Map F3 to echo the current date and time
 map <F3> :echo 'Current time is ' . strftime('%c')<CR>
-
-
-" create and close new tabls
-nnoremap <F1> :tabnew<CR>
-nnoremap <F2> :tabclose<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " NERD TREE
