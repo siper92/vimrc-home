@@ -37,6 +37,9 @@ set shiftwidth=4
 " other than the (hard)tabstop
 set softtabstop=4
 
+" don't show documentation popup for vim files automatically
+autocmd FileType python setlocal completeopt-=preview
+
 """""""""""""""""""""""""""""""""""""""""""
 " GENEREL KEY BINDINGS  
 """""""""""""""""""""""""""""""""""""""""""
