@@ -1,8 +1,23 @@
 ABS_PATH=`cd "$1"; pwd`
 echo "Creating a semilings for $ABS_PATH to ~/"
-if [ ! -e "$ABS_PATH/.vimrc" ]; then
-	ln -s "$ABS_PATH/.vimrc" ~/.vimrc
-	echo "Link created"
+
+create_vimrc () {
+    rm ~/.vimrc
+    ln -s "$ABS_PATH/.vimrc" ~/.vimrc
+    echo "Link created"
+}
+
+if [ ! -e "~/.vimrc" ]  && [ ! -h "~/.vimrc"  ];  then
+    create_vimrc
+else
+    while true; do
+        read -p "vimrc already exists do you wan't to change it (Y/n): " yesno
+        case $yesno in
+            [Yy]* ) create_vimrc; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer y or n.";;
+        esac
+    done
 fi
 
 if [ ! -d "$ABS_PATH/.vim" ]; then
