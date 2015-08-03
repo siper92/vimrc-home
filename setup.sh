@@ -20,7 +20,7 @@ else
     done
 fi
 
-if [ ! -d "$ABS_PATH/.vim" ]; then
+if [ -d "$ABS_PATH/.vim" ]; then
 	ln -s "$ABS_PATH/.vim" ~/.vim
 	echo "vim folder created"
 fi
@@ -36,5 +36,5 @@ fi
 
 if [ ! -d  "$ABS_PATH/.vim/bundle/jedi-vim" ]; then
 	echo "Cloning the jedi-vim plugin"
-	git clone --recursive git@github.com:siper92/jedi-vim.git "$ABS_PATH/.vim/bundle/jedi-vim" 
+	git clone --recursive git@github.com:siper92/jedi-vim.git "$ABS_PATH/.vim/bundle/jedi-vim"
 fi
