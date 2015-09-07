@@ -75,15 +75,44 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 set t_Co=256
 color behelit
 
-"set tab size of a hard tabstop
-set tabstop=4
-" size of an "indent"
-set shiftwidth=4
-" a combination of spaces and tabs are used to simulate tab stops at a width
-" other than the (hard)tabstop
-set softtabstop=4
+" Enable syntax highlighting
+" You need to reload this file for the change to apply
+filetype off
+filetype plugin indent on
+syntax on
 
-set autoindent
+" Showing line numbers and length
+set tw=79   " width of document (used by gd)
+set nowrap  " don't automatically wrap on load
+set fo-=t   " don't automatically wrap text when typing
+set colorcolumn=80
+
+" easier formatting of paragraphs
+vmap Q gq
+nmap Q gqap
+
+" Useful settings
+set history=700
+set undolevels=700
+
+" Real programmers don't use TABs but spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+
+" Make search case insensitive
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Disable stupid backup and swap files - they trigger too many events
+" " for file system watchers
+set nobackup
+set nowritebackup
+set noswapfile
 
 " configure expanding of tabs for various file types
 au BufRead,BufNewFile *.py set expandtab
@@ -93,18 +122,10 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 "--------------------------------------------------------------------------------
 "		configure editor with tabs and nice stuff...
 "--------------------------------------------------------------------------------
-set expandtab           " enter spaces when tab is pressed
-set textwidth=120       " break lines when line length increases
-set tabstop=4           " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4        " number of spaces to use for auto indent
-set autoindent          " copy indent from current line when starting a new
-"  line
 "
 " make backspaces more powerfull
 set backspace=indent,eol,start
 set ruler           " show line and column number
-syntax on			" syntax highlighting
 set showcmd			" show (partial) command in status line
 
 " don't show documentation popup for vim files automatically
