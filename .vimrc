@@ -15,6 +15,14 @@
 """""""""""""""""""""""""""""""""""""""""""
 " GENERAL SETTIGNS
 """""""""""""""""""""""""""""""""""""""""""  
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" Better copy & paste
+" When you want to paste large blocks of code into vim, press F2 before you
+" paste. At the bottom you should see ``-- INSERT (paste) --``
+set pastetoggle=<F2>
+set clipboard=unnamed
 
 " Enable line numbers
 set nu
@@ -27,8 +35,46 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch 
 set mouse=a
+" make backspace behave like normal again
+set bs=2
+
+" Bind nohl
+" " Removes highlight of your last search
+" " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
+noremap <C-]> :nohl<CR>
+vnoremap <C-]> :nohl<CR>
+inoremap <C-]> :nohl<CR>
+
+" Quick quit command
+noremap <Leader>e :quit<CR>  
+noremap <Leader>E :qa!<CR>   
+
+" bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
+" Every unnecessary keystroke that can be saved is good for your health :)
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" easier moving between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+" Show whitespace
+" " MUST be inserted BEFORE the colorscheme command
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
 " Set color mode to 256 colors
 set t_Co=256
+color behelit
+
 "set tab size of a hard tabstop
 set tabstop=4
 " size of an "indent"
@@ -70,11 +116,6 @@ autocmd FileType python setlocal completeopt-=preview
 
 " set leader button
 :let mapleader = "\\"
-
-" Change mouse mode or something like that!
-" set mouse=a 
-" toggle paste mode, make it easy to past text in vim
-set pastetoggle=<C-p>
  
 " <C-s> not working because it's a terinal command
 " SAVE
