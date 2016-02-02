@@ -38,3 +38,8 @@ if [ ! -d  "$ABS_PATH/.vim/bundle/jedi-vim" ]; then
 	echo "Cloning the jedi-vim plugin"
 	git clone --recursive git@github.com:siper92/jedi-vim.git "$ABS_PATH/.vim/bundle/jedi-vim"
 fi
+
+if [ ! -d  "$ABS_PATH/.vim/bundle/rust.vim" ]; then
+	echo "Cloning rust vim"
+	git clone --depth=1 git@github.com:rust-lang/rust.vim.git "$ABS_PATH/.vim/bundle/rust.vim"
+fi
